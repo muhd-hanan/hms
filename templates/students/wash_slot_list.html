@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load wash_slot_tags %}
+{% block title %}Wash Slot List{% endblock %}
+{% block content %}
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold">Wash Slots</h1>
+        </div>
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2 text-center">Time</th>
+                    <th class="p-2 text-center">Max Capacity</th>
+                    <th class="p-2 text-center">Current Students</th>
+                    <th class="p-2 text-center">Available Capacity</th>
+                    <th class="p-2 text-center">Stundets</th>
+                    <th class="p-2 text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for slot in wash_slots %}
+                    <tr class="border-b">
+                        <td class="p-2 text-center">{{ slot.start_time }} - {{ slot.end_time }}</td>
+                        <td class="p-2 text-center">{{ slot.max_capacity }}</td>
+                        <td class="p-2 text-center">{{ slot.students.count }}</td>
+                        <td class="p-2 text-center">{{ slot.max_capacity|sub:slot.students.count }}</td>
+                        <td class="p-2 text-center">
+                            {% for student in slot.students.all %}
+                                {{ student.first_name }} {{ student.last_name }}{% if not forloop.last %},{% endif %}
+                            {% empty %}
+                                No students assigned
+                            {% endfor %}
+                        </td>
+                        <td class="p-2 text-center">
+                            {% if request.user in slot.students.all %}
+                                <a href="{% url 'students:wash_slot_complete' slot.id %}" class="text-blue-500 hover:underline">Complete</a>
+                            {% else %}
+                                <a href="{% url 'students:wash_slot_book' slot.id %}" class="text-blue-500 hover:underline">Book</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="5" class="p-2 text-center">No wash slots available.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

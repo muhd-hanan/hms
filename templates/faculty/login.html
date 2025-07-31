@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    
+
+
+    <!-- <div class="min-h-screen flex items-center justify-center bg-gray-100">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <h1 class="text-2xl font-bold mb-6 text-center">Login to Hostel Management</h1>
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                <div>
+                    <label for="email" class="block text-gray-700 font-medium">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-gray-700 font-medium">Password</label>
+                    <input type="password" id="password" name="password" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200">Login</button>
+            </form>
+            {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                        <div class="p-3 rounded {% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div> -->
+
+<header class="bg-blue-900 w-full h-[8vh]">
+    <h2 class="font-bold pl-9 pt-4 text-lg sm:text-2xl  text-white ">Hostel Management</h2>
+</header>
+
+
+<section class="w-full h-[100vh] bg-[#F4F6FC] sm:bg-[url('{% static './images/bg-1.png' %}')] bg-cover bg-bottom">
+        <div class="w-full h-[100vh]  flex justify-start  ">
+
+            <div class="w-[720px]     pl-[10%]  ">
+                <div class=" pt-[18vh] w-[330px]     mb-8">
+                    <a class="block text-[29px] font-bold text-[#26264afa]  " href="">login</a>
+
+              </div>
+                <form  method="post" class=" ">
+                     {% csrf_token %}
+
+                    <input required type="text" placeholder="Email" id="email" name="email" 
+                        class=" focus:outline-none w-[330px] border-opacity-40 h-[39px] mt-2   border-blue-950 border-b-2 bg-[#F4F6FC] pl-4"><br><br>
+
+
+                    <input required type="text" placeholder="Password" id="password" name="password"
+                        class="focus:outline-none w-[330px] border-opacity-40 h-[39px] mt-2   border-blue-950 border-b-2 bg-[#F4F6FC] pl-4">
+
+
+                        {% if messages %}
+                <div class="mt-4 w-[330px]">
+                    {% for message in messages %}
+                        <div class="p-3 rounded {% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+                    <div class="mt-12 flex justify-end w-[330px]">
+                        
+
+                        <button type="submit"
+                            class=" bg-[#2c2c56] w-[2.5cm]  text-center text-[14px] rounded-md py-[6px] px-5 text-white font-semibold">login</button>
+                    </div>
+
+                     
+
+
+
+                </form>
+               
+
+
+
+
+            </div>
+
+
+
+
+
+            <div>
+
+                <img class=" hidden sm:block w-[740px] pt-[28vh] " src="{% static './images/loginimg.png' %}" alt="img">
+            </div>
+
+
+        </div>
+    </section>
+
+    </body>
+    </html>
+
+
+    

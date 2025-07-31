@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Food Menu List{% endblock %}
+{% block content %}
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold">Food Menu</h1>
+        </div>
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="p-2 text-left">Day</th>
+                    <th class="p-2 text-left">BreakFast</th>
+                    <th class="p-2 text-left">Lunch</th>
+                    <th class="p-2 text-left">Snacks</th>
+                    <th class="p-2 text-left">Dinner</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for menu in food_menus %}
+                    <tr class="border-b">
+                        <td class="p-2">{{ menu.get_day_display }}</td>
+                        <td class="p-2">{{ menu.breakfast }}</td>
+                        <td class="p-2">{{ menu.lunch }}</td>
+                        <td class="p-2">{{ menu.snack }}</td>
+                        <td class="p-2">{{ menu.dinner }}</td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="4" class="p-2 text-center">No menus available.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

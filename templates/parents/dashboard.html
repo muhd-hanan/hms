@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Parent Dashboard{% endblock %}
+{% block content %}
+    <div class=" p-6 rounded-lg ">
+        <h1 class=" font-bold text-center mb-5  text-[45px]">Parent Dashboard</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-9">
+            <a href="{% url 'parents:attendance_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">View Attendance</a>
+            <a href="{% url 'parents:check_in_out_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">View Check In/Out</a>
+            <a href="{% url 'parents:fee_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">View Fees</a>
+            <a href="{% url 'parents:notification_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Alert Messages</a>
+            <a href="{% url 'manager:change_password' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Change Password</a>
+        </div>
+    </div>
+{% endblock %}

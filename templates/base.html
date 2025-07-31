@@ -1,0 +1,38 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hostel Management{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class=" font-sans w-full min-h-screen h-auto pb-10 bg-gradient-to-t  from-[rgb(198,225,248)] to-[#79e5fb]">
+    <nav class="bg-[#79e5fb] p-4 pt-4 border-b mt-4 ">
+        <div class="container mx-auto flex justify-between">
+            <a href="{% if user.is_faculty %}{% url 'faculty:dashboard' %}{% elif user.is_parent %}{% url 'parents:dashboard' %}{% elif user.is_student %}{% url 'students:dashboard' %}{% else %}/{% endif %}" class="text-xl font-bold">Hostel Management</a>
+            <div>
+                {% if user.is_authenticated %}
+                    <span class="font-semibold ">Welcome, {{ user.email }}</span>
+                    <a href="{% url 'logout' %}" class="ml-4 hover:underline">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="hover:underline font-semibold">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    {% if messages %}
+        <div class="container mx-auto mt-4">
+            {% for message in messages %}
+                <div class="bg-{% if message.tags == 'error' %}red{% else %}green{% endif %}-100 border border-{% if message.tags == 'error' %}red{% else %}green{% endif %}-400 text-{% if message.tags == 'error' %}red{% else %}green{% endif %}-700 px-4 py-3 rounded">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <main class="container mx-auto pt-14">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

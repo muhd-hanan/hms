@@ -1,0 +1,23 @@
+<!-- faculty/templates/faculty/dashboard.html -->
+{% extends "base.html" %}
+{% block title %}Faculty Dashboard{% endblock %}
+{% block content %}
+    <div class=" p-6 rounded-lg ">
+        <h1 class="font-bold text-center text-[20px] sm:text-[30px]  md:text-[45px] mb-5">Faculty Dashboard</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-9">
+            <a href="{% url 'faculty:food_menu_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Food Menu</a>
+            <a href="{% url 'faculty:food_count_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Food Count</a>
+            <a href="{% url 'faculty:mess_cut_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Mess Cut</a>
+            <a href="{% url 'faculty:wash_slot_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Wash Slots</a>
+            <a href="{% url 'faculty:fee_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Track Fee Status</a>
+            <a href="{% url 'faculty:complaint_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Handle Complaints</a>
+            <a href="{% url 'faculty:attendance_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Mark Attendance</a>
+            <a href="{% url 'faculty:check_in_out_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Check In/Out</a>
+            <a href="{% url 'faculty:notification_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Send Alert</a>
+            <a href="{% url 'faculty:parent_student_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Parent-Student</a>
+            <a href="{% url 'faculty:student_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Students</a>
+            <a href="{% url 'faculty:parent_list' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Manage Parents</a>
+            <a href="{% url 'manager:change_password' %}" class="h-[2cm]  block bg-orange-50 text-center pt-6 rounded-xl  hover:border-2 hover:border-blue-300 hover:shadow-lg  font-semibold text-[18px]">Change Password</a>
+        </div>
+    </div>
+{% endblock %}
